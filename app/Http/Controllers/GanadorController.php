@@ -11,24 +11,25 @@ class GanadorController extends Controller
 {
     public function index()
     {
-        return GanadorResource::collection(Ganador::all());
+        $ganadores = Ganador::with(['usuario', 'sorteo', 'premio'])->get();
+        return GanadorResource::collection($ganadores);
     }
 
     public function store(StoreGanadorRequest $request)
     {
         $ganador = Ganador::create($request->validated());
-        return new GanadorResource($ganador);
+        return new GanadorResource($ganador->load(['usuario', 'sorteo', 'premio']));
     }
 
     public function show(Ganador $ganador)
     {
-        return new GanadorResource($ganador);
+        return new GanadorResource($ganador->load(['usuario', 'sorteo', 'premio']));
     }
 
     public function update(UpdateGanadorRequest $request, Ganador $ganador)
     {
         $ganador->update($request->validated());
-        return new GanadorResource($ganador);
+        return new GanadorResource($ganador->load(['usuario', 'sorteo', 'premio']));
     }
 
     public function destroy(Ganador $ganador)

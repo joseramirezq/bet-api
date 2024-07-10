@@ -14,9 +14,12 @@ class UpdateSuscripcionRequest extends FormRequest
     {
         return [
             'id_usuario' => 'exists:usuarios,id',
+            'periodo' => 'nullable',
             'fecha_inicio' => 'date',
             'fecha_fin' => 'date|nullable',
             'estado' => 'boolean',
+            'monto_pagado' => 'required|numeric|min:0',
+            'tipo_pago'=>'required'
         ];
     }
 }

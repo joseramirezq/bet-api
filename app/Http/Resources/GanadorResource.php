@@ -9,8 +9,9 @@ class GanadorResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'id_usuario' => $this->id_usuario,
-            'id_sorteo' => $this->id_sorteo,
+            'usuario' => new UsuarioResource($this->whenLoaded('usuario')),
+            'sorteo' => new SorteoResource($this->whenLoaded('sorteo')),
+            'premio' => new PremioResource($this->whenLoaded('premio')),
             'fecha_ganado' => $this->fecha_ganado,
             'estado' => $this->estado,
             'created_at' => $this->created_at,

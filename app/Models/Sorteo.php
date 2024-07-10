@@ -10,14 +10,14 @@ class Sorteo extends Model
     use HasFactory;
     protected $table = 'sorteos';
     protected $fillable = [
-        'id_premio', 'fecha_sorteo', 'estado', 'activo'
+        'fecha_sorteo', 'estado', 'activo'
     ];
 
-    public function premio()
+    
+    public function premios()
     {
-        return $this->belongsTo(Premio::class);
+        return $this->belongsToMany(Premio::class, 'premio_sorteos', 'id_sorteo', 'id_premio');
     }
-
     public function ganadores()
     {
         return $this->hasMany(Ganador::class);

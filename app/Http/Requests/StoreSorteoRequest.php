@@ -13,10 +13,12 @@ class StoreSorteoRequest extends FormRequest
     public function rules()
     {
         return [
-            'id_premio' => 'required|exists:premios,id',
+            //'id_premio' => 'required|exists:premios,id',
             'fecha_sorteo' => 'required|date',
             'estado' => 'required|string|max:50',
             'activo' => 'required|boolean',
+            'premios' => 'required|array',
+            'premios.*' => 'exists:premios,id', 
         ];
     }
 }

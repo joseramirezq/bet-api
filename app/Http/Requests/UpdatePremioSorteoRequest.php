@@ -1,9 +1,10 @@
 <?php
+
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdatePremioRequest extends FormRequest
+class UpdatePremioSorteoRequest extends FormRequest
 {
     public function authorize()
     {
@@ -13,9 +14,9 @@ class UpdatePremioRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre_premio' => 'string|max:100',
-            'descripcion' => 'string',
-            'imagen_url' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'id_sorteo' => 'sometimes|exists:sorteos,id',
+            'id_premio' => 'sometimes|exists:premios,id',
+            'estado' => 'sometimes|boolean',
         ];
     }
 }

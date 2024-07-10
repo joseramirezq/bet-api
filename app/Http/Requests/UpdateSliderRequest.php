@@ -18,6 +18,7 @@ class UpdateSliderRequest extends FormRequest
             'imagen_url' => 'string|max:255',
             'orden' => 'integer',
             'activo' => 'boolean',
+              'estado' => 'boolean'
         ];
     }
 }

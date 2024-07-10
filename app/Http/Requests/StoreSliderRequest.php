@@ -18,6 +18,7 @@ class StoreSliderRequest extends FormRequest
             'imagen_url' => 'required|string|max:255',
             'orden' => 'required|integer',
             'activo' => 'required|boolean',
+             'estado' => 'boolean'
         ];
     }
 }

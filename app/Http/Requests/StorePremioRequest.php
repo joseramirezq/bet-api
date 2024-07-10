@@ -15,7 +15,7 @@ class StorePremioRequest extends FormRequest
         return [
             'nombre_premio' => 'required|string|max:100',
             'descripcion' => 'required|string',
-            'imagen_url' => 'required|string|max:255',
+           'imagen_url' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }
 }

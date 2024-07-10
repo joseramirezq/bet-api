@@ -15,6 +15,6 @@ class Premio extends Model
 
     public function sorteos()
     {
-        return $this->hasMany(Sorteo::class);
+        return $this->belongsToMany(Sorteo::class, 'premio_sorteos', 'id_premio', 'id_sorteo');
     }
 }

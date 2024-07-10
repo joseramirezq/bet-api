@@ -13,13 +13,13 @@ class Pago extends Model
         'id_usuario', 'id_suscripcion', 'monto', 'fecha_pago', 'metodo_pago', 'estado'
     ];
 
-    public function usuario()
-    {
-        return $this->belongsTo(Usuario::class);
-    }
-
     public function suscripcion()
     {
-        return $this->belongsTo(Suscripcion::class);
+        return $this->belongsTo(Suscripcion::class, 'id_suscripcion');
+    }
+
+    public function usuario()
+    {
+        return $this->belongsTo(Usuario::class, 'id_usuario');
     }
 }
